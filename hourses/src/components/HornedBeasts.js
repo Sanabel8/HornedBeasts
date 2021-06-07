@@ -1,14 +1,37 @@
 import React from 'react';
 
 class HornedBeasts extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            numberOfPick: 0
+        }
+    }
+
+    choosenPic = () => {
+        // this.props.favoritePictures();
+        let cont = this.state.numberOfPick
+        this.setState({
+            numberOfPick: cont += 1
+        })
+    }
+
+
     render() {
+        console.log(this.props);
         return (
-           <div>
-               <h2>UniWhal</h2>
-               <img src="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" alt="UniWhal"/>
-               <p>A unicorn and a narwhal nuzzling their horns</p>
-           </div>
+            <div>
+                <h2>{this.props.title}</h2>
+                <img style={{ width: '200px' }} src={this.props.image_url} alt={this.props.title} />
+                <p>{this.props.description}</p>
+
+
+                <button onClick={this.choosenPic}>num of choosen</button>
+                <p>***{this.state.numberOfPick}***</p>
+
+
+            </div>
         )
     }
 }
-export default HornedBeasts ;
+export default HornedBeasts;
