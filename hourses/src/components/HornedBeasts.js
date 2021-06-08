@@ -1,37 +1,51 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
 
-class HornedBeasts extends React.Component {
+
+class HornedBeast extends React.Component {
+
+
+
     constructor(props) {
-        super();
+
+        super(props)
         this.state = {
-            numberOfPick: 0
+
+            counter: 0
         }
     }
+    incremental = () => {
 
-    choosenPic = () => {
-        // this.props.favoritePictures();
-        let cont = this.state.numberOfPick
         this.setState({
-            numberOfPick: cont += 1
+            counter: this.state.counter + 1
         })
     }
-
+    popUpCard = () => {
+        this.props.popUpCard(this.props.title)
+    }
 
     render() {
-        console.log(this.props);
+
         return (
             <div>
-                <h2>{this.props.title}</h2>
-                <img style={{ width: '200px' }} src={this.props.image_url} alt={this.props.title} />
-                <p>{this.props.description}</p>
 
-
-                <button onClick={this.choosenPic}>num of choosen</button>
-                <p>***{this.state.numberOfPick}***</p>
-
+                <Card onClick={this.popUpCard} style={{ width: '18rem'}}>
+                    <Card.Img variant="top" src={this.props.imgUrl} alt={this.props.title} title={this.props.title}  />
+                    <Card.Body>
+                        <Card.Title>{this.props.title}</Card.Title>
+                        <Card.Text>
+                        {this.props.description}
+                        </Card.Text>
+                        <Card.Text></Card.Text>
+                         <Button variant="primary" onClick={this.incremental} > numberOfPick ❤️{this.state.counter}</Button> 
+                    </Card.Body>
+                </Card>
 
             </div>
         )
     }
+
 }
-export default HornedBeasts;
+export default HornedBeast;
