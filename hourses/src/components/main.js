@@ -19,7 +19,7 @@ class Main extends React.Component {
                             title={beasts.title}
                             imgUrl={beasts.image_url}
                             description={beasts.description}
-                            dataShwing={this.props.showPic}
+                            dataShwing={this.props.show}
                             popUpCard={this.props.popUpCard}
 
                         />
