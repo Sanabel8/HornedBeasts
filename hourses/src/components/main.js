@@ -1,9 +1,25 @@
 import React from 'react';
+import FormFilter from './FormFilter';
 import HornedBeast from './HornedBeasts';
 
 
 
 class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            filterValue: ''     //recive the data from setstate
+        }
+
+    }
+
+    changeFilterValue = (data) => {
+
+        this.setState({
+            filterValue :data            //recive data from formfilter and stored the data inside the state
+        })                               
+
+    }
 
 
     render() {
@@ -11,22 +27,51 @@ class Main extends React.Component {
         return (
 
             <div>
+
+                <FormFilter
+                  
+                  changeValueFunc={this.changeFilterValue}           //send the function that invoked in formfilter 
+
+                />
+
                 {this.props.beastData.map((beasts) => {
 
-                    return (
+                    if(beasts.horns === Number(this.state.filterValue)){
+                        return (
 
-                        <HornedBeast
-                            title={beasts.title}
-                            imgUrl={beasts.image_url}
-                            description={beasts.description}
-                            dataShwing={this.props.show}
-                            popUpCard={this.props.popUpCard}
+                            <HornedBeast
+                                title={beasts.title}
+                                imgUrl={beasts.image_url}
+                                description={beasts.description}
+                                dataShwing={this.props.show}
+                                popUpCard={this.props.popUpCard}
+    
+                            />
+                        )
+                    }else if(this.state.filterValue == ''){
+                        return (
 
-                        />
-                    )
+                            <HornedBeast
+                                title={beasts.title}
+                                imgUrl={beasts.image_url}
+                                description={beasts.description}
+                                dataShwing={this.props.show}
+                                popUpCard={this.props.popUpCard}
+    
+                            />
+                        ) 
+
+                    }
+
+                    
+
+                   
+
                 })
 
                 }
+
+
 
             </div>
 
@@ -39,54 +84,3 @@ class Main extends React.Component {
 
 
 export default Main;
-//     render() {
-
-
-
-//         //   console.log(this.props);
-//         return (
-//             <div>
-
-//                 {
-
-//                     // DataHorned.map((beast) => {
-//                     //     return (
-//                     //         <HornedBeasts
-//                     //             title={beast.title}
-//                     //             image_url={beast.image_url}
-//                     //             description={beast.description}
-//                     //         // favoritePictures={this.favoritePictures}
-//                     //         />
-
-//                     //     )
-//                     // })
-
-//                     <Card style={{ width: '18rem' }}>
-//                         <Card.Img variant="top" src="holder.js/100px180" />
-//                         <Card.Body>
-//                             <Card.Title>'beast.title'</Card.Title>
-//                             <Card.Text>
-//                             'beast.title'
-//                                   </Card.Text>
-//                             <Button variant="primary">Go somewhere</Button>
-//                         </Card.Body>
-//                     </Card>
-
-//                 }
-//                 {/* <HornedBeasts 
-//               title =''
-//               img =''
-//               description =''
-
-//               /> 
-//               <HornedBeasts />
-//               <HornedBeasts />
-//              */}
-
-//             </div>
-
-//         )
-//     }
-// }
-
-// export default Main;
