@@ -15,7 +15,7 @@ class App extends React.Component{
     this.state = {
 
       beastData: DataHorned,
-      showPic: false,
+      show: false,
       itemSelected: {}
 
 
@@ -25,14 +25,14 @@ class App extends React.Component{
 
   setShowPic = () => {
     this.setState({
-      showPic: true
+      show: true
     })
 
   }
 
   CloseFun = () => {
     this.setState({
-      showPic: false
+      show: false
 
     })
 
@@ -47,7 +47,7 @@ class App extends React.Component{
     })
 
     this.setState({
-      showPic: true,
+      show: true,
       itemSelected: itemSelected
     })
   }
@@ -70,7 +70,7 @@ class App extends React.Component{
 
         <SelectedBeast
           beastData={this.state.beastData}
-          showPic={this.state.showPic}
+          show={this.state.show}
           CloseFun={this.CloseFun}
           itemSelected={this.state.itemSelected}
         />
