@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 
 class FormFilter extends React.Component {
 
-    //while the user is typing in the ifo in the input field 
+    //while the user is typing in the info in the input field 
     //we will take those info and save them inside our state 
 
     constructor(props) {
