@@ -1,10 +1,15 @@
 import React from 'react';
+
+
 import FormFilter from './FormFilter';
+
 import HornedBeast from './HornedBeasts';
 
 
 
 class Main extends React.Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,11 +27,27 @@ class Main extends React.Component {
     }
 
 
+
     render() {
 
         return (
 
             <div>
+
+                {this.props.beastData.map((beasts) => {
+
+                    return (
+
+                        <HornedBeast
+                            title={beasts.title}
+                            imgUrl={beasts.image_url}
+                            description={beasts.description}
+                            dataShwing={this.props.show}
+                            popUpCard={this.props.popUpCard}
+
+                        />
+                    )
+
 
                 <FormFilter
                   
@@ -66,11 +87,9 @@ class Main extends React.Component {
                     
 
                    
-
                 })
 
                 }
-
 
 
             </div>
