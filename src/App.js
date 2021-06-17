@@ -4,7 +4,9 @@ import Header from './components/Header';
 import Main from './components/main';
 import DataHorned from './components/Data.json';
 import SelectedBeast from './components/SelectedBeast';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -66,7 +68,7 @@ class App extends React.Component{
           popUpCard={this.popUpCard}
 
         />
-        
+
 
         <Footer />
 
